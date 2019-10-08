@@ -109,7 +109,41 @@ class Pager:
             data = ["没有数据"]
         return data
 
-
+#
+# class Pager:
+#     def __init__(self,data,page_size):         #init方法
+#         self.data=data                         #获取参数data
+#         self.page_size=page_size                #获取参数page_size
+#         self.is_start=False                     #获取is_start默认为False
+#         self.is_end=False
+#         self.page_count=len(data)               #获取data列表的列表数
+#         self.next_page=0                        #下一页为0  假象
+#         self.previous_page=0                    #上一页为0  假象
+#         self.page_number=self.page_count/page_size  #获取假象 page_number为页码数
+#         if self.page_number==int(self.page_number): #如果是整数
+#             self.page_number=int(self.page_number)  #获取整的
+#         else:                                       #如果不是整数
+#             self.page_number=int(self.page_number)+1#获取数+1
+#         self.page_range=range(1,self.page_number+1) #page_range是页码的循环
+#     def page_data(self,page):                   #
+#         self.next_page=int(page)+1
+#         self.previous_page=int(page)-1
+#         if page<=self.page_range[-1]:
+#             page_start=(page-1)*self.page_size
+#             page_end=page*self.page_size
+#
+#             data=self.data[page_start,page_end]
+#             if page==1:
+#                 self.is_start=True
+#             else:
+#                 self.is_start=False
+#             if page==self.page_range[-1]:
+#                 self.is_end=True
+#             else:
+#                 self.is_end=False
+#         else:
+#             data=["没有数据"]
+#         return data
 
 @app.route("/logout/")
 def logout():
@@ -179,7 +213,19 @@ def register():
 
 
 
-
+from forms import TaskForm
+@app.route("/add_task/",methods=["GET","POST"])
+def add_task():
+    errors=""
+    task=TaskForm()
+    if request.method=="POST":
+        if task.validate_on_submit():
+            formData=task.data
+        else:
+            errors_list=list(task.errors.keys())
+            errors=task.errors
+            print(errors)
+    return render_template("add_task.html",**locals())
 
 from models import Picture
 

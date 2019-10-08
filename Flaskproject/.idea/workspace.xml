@@ -12,6 +12,10 @@
       <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/setting.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/add_task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/holiday_request.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/leave_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/out_request.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views_url.py" afterDir="false" />
     </list>
@@ -67,7 +71,7 @@
     <session id="-679539032">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="2" />
@@ -78,8 +82,7 @@
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -123,19 +126,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="846">
-              <caret line="181" selection-start-line="181" selection-end-line="181" />
+            <state relative-caret-position="281">
+              <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
               <folding>
-                <element signature="e#368#383#0" expanded="true" />
-                <marker date="1570536183494" expanded="true" signature="715:789" ph="..." />
-                <marker date="1570536183494" expanded="true" signature="3139:3332" ph="..." />
-                <marker date="1570536183494" expanded="true" signature="4722:4727" ph="..." />
-                <marker date="1570536183494" expanded="true" signature="4783:4784" ph="..." />
-                <marker date="1570536183494" expanded="true" signature="5304:5307" ph="..." />
+                <marker date="1570536060286" expanded="true" signature="715:789" ph="..." />
+                <marker date="1570536060286" expanded="true" signature="4648:4841" ph="..." />
+                <marker date="1570536060286" expanded="true" signature="6231:6236" ph="..." />
+                <marker date="1570536060286" expanded="true" signature="6292:6293" ph="..." />
+                <marker date="1570536060286" expanded="true" signature="7212:7215" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views_url.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2313">
+              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -168,10 +179,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/add_task.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1836">
               <caret line="68" column="18" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/leave_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1269">
+              <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -255,7 +284,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,6 +295,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -469,7 +498,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49361023" visible="true" weight="0.24676166" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49361023" visible="true" weight="0.24287565" />
       <window_info id="Structure" order="1" sideWeight="0.5063898" side_tool="true" weight="0.26868907" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -650,7 +679,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/picture.html" />
+    <entry file="file://$PROJECT_DIR$/templates/picture.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="81" selection-start-line="9" selection-start-column="81" selection-end-line="9" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
     <entry file="das://4860224c-28d4-49bc-a06f-0801393e3741/schema/main/table/picture">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -673,6 +708,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ceshi.py" />
+    <entry file="file://$PROJECT_DIR$/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+          <folding>
+            <marker date="1570536060286" expanded="true" signature="715:789" ph="..." />
+            <marker date="1570536060286" expanded="true" signature="4648:4841" ph="..." />
+            <marker date="1570536060286" expanded="true" signature="6231:6236" ph="..." />
+            <marker date="1570536060286" expanded="true" signature="6292:6293" ph="..." />
+            <marker date="1570536060286" expanded="true" signature="7212:7215" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -719,23 +768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views_url.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="181" selection-start-line="181" selection-end-line="181" />
-          <folding>
-            <element signature="e#368#383#0" expanded="true" />
-            <marker date="1570536183494" expanded="true" signature="715:789" ph="..." />
-            <marker date="1570536183494" expanded="true" signature="3139:3332" ph="..." />
-            <marker date="1570536183494" expanded="true" signature="4722:4727" ph="..." />
-            <marker date="1570536183494" expanded="true" signature="4783:4784" ph="..." />
-            <marker date="1570536183494" expanded="true" signature="5304:5307" ph="..." />
-          </folding>
+        <state relative-caret-position="-2313">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
