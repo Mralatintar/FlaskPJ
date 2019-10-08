@@ -19,6 +19,7 @@ from models import User,Leave
 import functools
 from flask import session
 from main import api
+from flask_restful import Resource
 
 import hashlib
 import datetime
@@ -364,6 +365,76 @@ def picture():
     return render_template("picture.html",**locals())
 
 
+@api.resource("/Api/leave/")
+@csrf.exempt
+class LeaveApi(Resource):
+    def __init__(self):
+        super(LeaveApi, self).__init__()
+        self.result={
+            "version":"1.0",
+            "data":""
+        }
+    def set_data(self,leave):
+        result_data={
+            "request_name":leave.request_name,
+            "request_type":leave.request_type,
+            "request_startdate":leave.request_startdate,
+            "request_enddate":leave.request_enddate,
+            "request_description":leave.request_description,
+            "request_phone":leave.request_phone,
+        }
+        return result_data
+    def get(self):
+        data=request.args
+        id=data.get("id")
+        if id:
+            leave=Leave.query.get(int(id))
+            result_data=self.set_data(leave)
+        else:
+            leaves=Leave.query.all()
+            result_data=[]
+            for leave in leaves:
+                result_data.append(self.set_data(leave))
+        self.result["data"]=result_data
+        return self.result
+    def post(self):
+        data=request.form
+        request_id=data.get("request_id")
+        request_name = data.get("request_name")
+        request_type = data.get("request_type")
+        request_start_time = data.get("request_start_time")
+        request_end_time = data.get("request_end_time")
+        request_description = data.get("request_description")
+        request_phone = data.get("request_phone")
+
+        leave = Leave()
+        leave.request_id = request_id
+        leave.request_name = request_name
+        leave.request_type = request_type  # 假期类型
+        leave.request_startdate = request_start_time  # 起始时间
+        leave.request_enddate = request_end_time  # 结束时间
+        leave.request_description = request_description  # 请假事由
+        leave.request_phone = request_phone  # 联系方式
+        leave.request_status = "0"  # 假条状态
+        leave.save()
+        return {"method":"这个是post请求，来保存数据"}
+    def put(self):
+        data = request.form
+        id=data.get("id")
+        leave=Leave.query.get(int(id))
+        for key,value in data.items():
+            if key!="id":
+                setattr(leave,key,value)
+        leave.save()
+        self.result["data"]=self.set_data(leave)
+        return self.result
+    def delet(self):
+        data=request.form
+        id=data.get("id")
+        leave=Leave.query.get(int(id))
+        leave.delete()
+        self.result["data"]="%s 删除成功"%id
+        return self.result
 
 
 
