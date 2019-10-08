@@ -15,6 +15,7 @@ import os
 from flask import render_template,redirect      #调用了 render_template模板,可将变量传入到网页内
 from main import *                #引入app（数据库）实例
 from models import Curriculum           #引入数据库数据表
+from models import User,Leave
 import functools
 from flask import session
 from main import api
@@ -190,7 +191,12 @@ def base():
     return render_template("base.html")
 
 
-
+import time
+@app.route("/userinfo/")
+def userinfo():
+    calendar = Calendar().return_month()
+    now = datetime.datetime.now()
+    return render_template("userinfo.html",**locals())
 
 
 from flask import request
@@ -207,11 +213,46 @@ def register():
         user.save()
     return render_template("register.html",**locals())
 
+@app.route("/holiday_request/",methods=["GET","POST"])
+def holiday_request():
+    if request.method=="POST":
+        data=request.form
+        request_user=data.get("request_name")
+        request_type=data.get("request_type")
+        request_startdate=data.get("request_startdate")
+        request_enddate=data.get("request_enddate")
+        request_phone=data.get("request_phone")
+        request_description=data.get("request_description")
 
+        leave=Leave()
+        leave.request_id=request.cookies.get("id")
+        leave.request_name=request_user
+        leave.request_type=request_type
+        leave.request_startdate=request_startdate
+        leave.request_enddate=request_enddate
+        leave.request_description=request_description
+        leave.request_phone=request_phone
+        leave.request_status="0"
+        leave.save()
+        return redirect("/leave_list/")
+    return render_template("holiday_request.html",**locals())
 
+@app.route("/leave_list/<int:page>/")
+def leave_list(page):
+    leaves=Leave.query.all()
+    pager = Pager(leaves, 2)
+    page_data = pager.page_data(page)
+    return render_template("leave_list.html",**locals())
 
+import json
+from flask import jsonify
 
-
+@app.route("/cancel/<int:id>/")
+def cancel(id):
+    id=request.args.get("id")
+    leave=Leave.query.get(int(id))
+    leave.delete()
+    return jsonify({"data":"删除成功"})
 
 from forms import TaskForm
 @app.route("/add_task/",methods=["GET","POST"])
